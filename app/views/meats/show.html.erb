@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Animal:</b>
+  <%= @meat.animal %>
+</p>
+
+<p>
+  <b>Kind:</b>
+  <%= @meat.kind %>
+</p>
+
+
+<%= link_to 'Edit', edit_meat_path(@meat) %> |
+<%= link_to 'Back', meats_path %>
