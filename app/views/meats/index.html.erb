@@ -9,21 +9,21 @@
   <h3><%= @search.total %> results</h3>
 <% end %>
 
-<% if @search.total != 0 %>
-  <table>
-    <tr>
-      <td><h3>Animal</h3></td>
-      <td><h3>Cut of Meat</h3></td>
-    </tr>
-  
-  <% @meats.each do |meat| %>
-    <tr>
-      <td><%= meat.animal %></td>
-      <td><%= meat.kind %></td>
-    </tr>
-  
-  <% end %>
 
-  </table>  
+<table>
+  <tr>
+    <td><h3>Animal</h3></td>
+    <td><h3>Cut of Meat</h3></td>
+  </tr>
+
+<% @meats.each do |meat| %>
+  <tr>
+    <td><%= meat.animal %></td>
+    <td><%= meat.kind %></td>
+  </tr>
+
 <% end %>
+
+</table>  
+
 
