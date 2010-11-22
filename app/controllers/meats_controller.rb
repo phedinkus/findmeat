@@ -1,12 +1,13 @@
 class MeatsController < ApplicationController
-  # GET /meats
-  # GET /meats.xml
   def index
-    @meats = Meat.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @meats }
+    if params[:q]
+     query = params[:q]
+     @search = Meat.search do
+       keywords query
+     end
+     @meats = @search.results
+    else
+      @meats = Meat.all
     end
   end
 

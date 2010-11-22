@@ -1,25 +1,29 @@
-<h1>Listing meats</h1>
+<h1>Find a meat....Yummmmmmmmm</h1>
 
-<table>
-  <tr>
-    <th>Animal</th>
-    <th>Kind</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<form>
+    <%= text_field_tag :q, params[:q]  %>
+    <input type="submit" value="Search" />
+</form>
 
-<% @meats.each do |meat| %>
-  <tr>
-    <td><%= meat.animal %></td>
-    <td><%= meat.kind %></td>
-    <td><%= link_to 'Show', meat %></td>
-    <td><%= link_to 'Edit', edit_meat_path(meat) %></td>
-    <td><%= link_to 'Destroy', meat, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% if @search %>
+  <h3><%= @search.total %> results</h3>
 <% end %>
-</table>
 
-<br />
+<% if @search.total != 0 %>
+  <table>
+    <tr>
+      <td><h3>Animal</h3></td>
+      <td><h3>Cut of Meat</h3></td>
+    </tr>
+  
+  <% @meats.each do |meat| %>
+    <tr>
+      <td><%= meat.animal %></td>
+      <td><%= meat.kind %></td>
+    </tr>
+  
+  <% end %>
 
-<%= link_to 'New Meat', new_meat_path %>
+  </table>  
+<% end %>
+
