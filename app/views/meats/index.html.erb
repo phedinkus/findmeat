@@ -1,29 +1,24 @@
-<h1>Find a meat....Yummmmmmmmm</h1>
+<h1>Find a meat to eat....Yummmmmmmmm</h1>
 
 <form>
+    <h3>Enter an animal</h3>
     <%= text_field_tag :q, params[:q]  %>
-    <input type="submit" value="Search" />
+    <input type="submit" value="Search">
 </form>
 
+    <p><%= link_to("Start over", root_path) %></p>
+ 
 <% if @search %>
-  <h3><%= @search.total %> results</h3>
-<% end %>
+  <h3>Cut of Meat</h3>
+  
+  <h4><%= @search.total %> results</h3><br/>
+  
+  <% @meats.each do |meat| %>
+    <ul>
+      <li><%= meat.kind %></li>
+    </ul>
+  <% end %>
 
-
-<table>
-  <tr>
-    <td><h3>Animal</h3></td>
-    <td><h3>Cut of Meat</h3></td>
-  </tr>
-
-<% @meats.each do |meat| %>
-  <tr>
-    <td><%= meat.animal %></td>
-    <td><%= meat.kind %></td>
-  </tr>
+</table>
 
 <% end %>
-
-</table>  
-
-
